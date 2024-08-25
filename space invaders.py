@@ -23,3 +23,24 @@ YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"
 
 #background 
 BG = pygame.image.load(os.path.join("assets", "background-black.png"))
+
+def main():
+    run = True
+    FPS = 60
+    clock = pygame.time.Clock()
+    
+    def redraw_window():
+        WIN.blit(BG, (0,0))
+        pygame.display.update()
+    
+    while run:
+        clock.tick(FPS)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                
+
+
+
+main()

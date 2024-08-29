@@ -33,6 +33,9 @@ class Ship:
         self.ship_img = None
         self.lasers = []
         self.cool_down_counter = 0
+        
+    def draw(self,window):
+        pygame.draw.rect(window, (255,0,0), (self.x, self.y, 50,50))
 
 def main():
     run = True
@@ -40,6 +43,8 @@ def main():
     level = 1
     lives = 1
     main_font = pygame.font.SysFont("comicsans", 50)
+    
+    ship = Ship(300, 650)
     
     clock = pygame.time.Clock()
     
@@ -51,6 +56,8 @@ def main():
         
         WIN.blit(lives_label, (10, 10))
         WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
+        
+        ship.draw(WIN)
         
         pygame.display.update()
     
@@ -65,3 +72,4 @@ def main():
 
 
 main()
+
